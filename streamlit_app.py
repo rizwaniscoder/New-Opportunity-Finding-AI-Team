@@ -71,7 +71,6 @@ if submit_button:
                 website_scrapper,
                 google_trends_tool,
             ],
-            allow_delegation=True,
             llm=llm,
             verbose=True,
         )
@@ -85,7 +84,6 @@ if submit_button:
                 website_scrapper,
                 google_trends_tool,
             ],
-            allow_delegation=True,
             llm=llm,
             verbose=True,
         )
@@ -99,7 +97,6 @@ if submit_button:
                 website_scrapper,
                 google_trends_tool,
             ],
-            allow_delegation=False,
             llm=llm,
             verbose=True,
         )
@@ -108,16 +105,19 @@ if submit_button:
         market_research_task = Task(
             description=f"Conduct comprehensive market research using Google Trends to identify potential new markets and emerging trends for the '{industry_keywords}' industry.",
             expected_output=f"A detailed report outlining potential new markets and emerging trends in the '{industry_keywords}' industry, based on Google Trends data.",
+            agent=market_researcher
         )
 
         industry_analysis_task = Task(
             description=f"Analyze the '{industry_name}' industry, including key players, market size, growth potential, and competitive landscape using Serpapi.",
             expected_output=f"A comprehensive industry analysis report covering key players, market size, growth potential, and competitive landscape for the '{industry_name}' industry.",
+            agent=industry_analyst
         )
 
         opportunity_evaluation_task = Task(
             description=f"Assess the feasibility and potential impact of identified opportunities for the '{product_name}' using Serpapi.",
             expected_output=f"A detailed evaluation of the feasibility and potential impact of the identified opportunities for the '{product_name}', including recommendations on the most promising avenues to pursue.",
+            agent=opportunity_evaluator
         )
 
         # Define the Crew
