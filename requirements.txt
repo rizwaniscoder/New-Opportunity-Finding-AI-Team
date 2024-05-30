@@ -1,0 +1,2 @@
+crewai[tools]
+google-search-results
